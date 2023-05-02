@@ -21,15 +21,15 @@ public class MatriculaController {
     MatriculaService matriculaService;
 
     //Cambiar para que solo muestre las que tienen cupos
-    @GetMapping("/materia")
-    public ArrayList<MateriaModel> obtenerMateriaPorCodigo(@RequestParam("codigo") Integer codigo){
-        return this.materiaService.obtenerPorCodigo(codigo);
-    }
+    //@GetMapping("/materia")
+    //public ArrayList<MateriaModel> obtenerMateriaPorCodigo(@RequestParam("codigo") Integer codigo){
+      //  return this.materiaService.obtenerPorCodigo(codigo);
+    //}
 
     //Al agregar se debe guardar con un cupo menos
-    @PostMapping()
-    public void transformarMateria(MateriaModel materia){
-        this.matriculaService.transformarMateria(materia);
-    }
+    //@PostMapping()
+    //public void transformarMateria(MateriaModel materia){
+        //this.matriculaService.transformarMateria(materia);
+    //}
     
 }

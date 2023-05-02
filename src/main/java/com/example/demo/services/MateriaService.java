@@ -1,9 +1,14 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.example.demo.dto.MateriaGrupoDto;
+import com.example.demo.models.GrupoModel;
 import com.example.demo.models.MateriaModel;
+import com.example.demo.repositories.GrupoRepository;
 import com.example.demo.repositories.MateriaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +18,10 @@ import org.springframework.stereotype.Service;
 public class MateriaService {
     @Autowired
     MateriaRepository materiaRepository;
+
+    @Autowired
+    GrupoRepository grupoRepository;
+
 
     //Obtiene todas las materias, esto es consultar oferta
     public ArrayList<MateriaModel> obtenerMaterias(){
@@ -30,8 +39,13 @@ public class MateriaService {
     }
 
     //Obtiene las materias con un mismo código, este es el que me tocó a mi, obtener todos los horarios de una materia en especifico, durante la oferta
-    public ArrayList<MateriaModel>  obtenerPorCodigo(Integer codigo) {
-        return materiaRepository.findByCodigo(codigo);
+    public List<MateriaGrupoDto>  obtenerPorCodigo(Integer codigo) {
+        MateriaModel materia = materiaRepository.findById(codigo).get();
+        ArrayList <GrupoModel> grupos = grupoRepository.findByMateriaId(codigo);
+        List <MateriaGrupoDto> listaGrupos = grupos.stream().map(grupo ->new MateriaGrupoDto(grupo.getId(), materia.getId(), grupo.getModalidad(), grupo.getNumeroGrupo(), 
+        grupo.getAula(), grupo.getHorario(), materia.getNombre(), materia.getCreditos(), materia.getDescripcion())).collect(Collectors.toList());
+
+        return listaGrupos;
     }
 
     //Elimina materia con grupo

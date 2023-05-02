@@ -1,10 +1,12 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.models.MateriaModel;
 import com.example.demo.services.MateriaService;
+import com.example.demo.dto.MateriaGrupoDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +34,7 @@ public class MateriaController {
     }
 
     @GetMapping("/materia")
-    public ArrayList<MateriaModel> obtenerMateriaPorCodigo(@RequestParam("codigo") Integer codigo){
+    public List<MateriaGrupoDto> obtenerMateriaPorCodigo(@RequestParam("codigo") Integer codigo){
         return this.materiaService.obtenerPorCodigo(codigo);
     }
 
