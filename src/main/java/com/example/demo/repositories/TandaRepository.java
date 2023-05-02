@@ -1,10 +1,9 @@
 package com.example.demo.repositories;
 
-import com.example.demo.models.HorarioEstModel;
+import com.example.demo.models.TandaModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface HorarioEstRepository extends CrudRepository<HorarioEstModel, Integer>{
-    
+public interface TandaRepository extends CrudRepository<TandaModel, Integer> {
 }

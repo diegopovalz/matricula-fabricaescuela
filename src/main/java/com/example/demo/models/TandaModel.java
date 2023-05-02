@@ -1,25 +1,26 @@
 package com.example.demo.models;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "materia")
-public class MateriaModel {
+@Table(name = "tanda")
+public class TandaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
-    @Column(name = "Nombre")
-    private String nombre;
-    @Column(name = "NumeroCreditos")
-    private Integer creditos;
+    @Column(name = "Numero")
+    private Integer numero;
+    @Column(name = "Horario")
+    private String horario;
     @Column(name = "CreatedOn")
     private String fechaCreacion;
     @Column(name = "UpdatedOn")
     private String fechaActualizacion;
-    @Column(name = "Descripcion")
-    private String descripcion;
 
     public Integer getId() {
         return id;
@@ -29,20 +30,20 @@ public class MateriaModel {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getNumero() {
+        return numero;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
-    public Integer getCreditos() {
-        return creditos;
+    public String getHorario() {
+        return horario;
     }
 
-    public void setCreditos(Integer creditos) {
-        this.creditos = creditos;
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public String getFechaCreacion() {
@@ -60,13 +61,4 @@ public class MateriaModel {
     public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
 }

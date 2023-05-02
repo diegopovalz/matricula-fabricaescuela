@@ -1,25 +1,25 @@
 package com.example.demo.models;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "materia")
-public class MateriaModel {
+@Table(name = "oferta")
+public class OfertaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
-    @Column(name = "Nombre")
-    private String nombre;
-    @Column(name = "NumeroCreditos")
-    private Integer creditos;
+    @Column(name = "TopeMaximoCreditos")
+    private Integer topeMaximoCreditos;
+    @Column(name = "ProgramaId")
+    private Integer programaId;
     @Column(name = "CreatedOn")
     private String fechaCreacion;
     @Column(name = "UpdatedOn")
     private String fechaActualizacion;
-    @Column(name = "Descripcion")
-    private String descripcion;
 
     public Integer getId() {
         return id;
@@ -29,20 +29,20 @@ public class MateriaModel {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getTopeMaximoCreditos() {
+        return topeMaximoCreditos;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTopeMaximoCreditos(Integer topeMaximoCreditos) {
+        this.topeMaximoCreditos = topeMaximoCreditos;
     }
 
-    public Integer getCreditos() {
-        return creditos;
+    public Integer getProgramaId() {
+        return programaId;
     }
 
-    public void setCreditos(Integer creditos) {
-        this.creditos = creditos;
+    public void setProgramaId(Integer programaId) {
+        this.programaId = programaId;
     }
 
     public String getFechaCreacion() {
@@ -60,13 +60,4 @@ public class MateriaModel {
     public void setFechaActualizacion(String fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
 }
