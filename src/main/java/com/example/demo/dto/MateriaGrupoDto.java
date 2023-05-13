@@ -1,5 +1,9 @@
 package com.example.demo.dto;
 
+import com.example.demo.repositories.HorarioRepository;
+
+import java.util.List;
+
 public class MateriaGrupoDto {
 
     private Integer grupoId;
@@ -7,14 +11,14 @@ public class MateriaGrupoDto {
     private String modalidad;
     private Integer numeroGrupo;
     private String aula;
-    private String horario;
+    private List<HorarioDto> horario;
     private String nombre;
     private Integer creditos;
     private String descripcion;
 
     
     public MateriaGrupoDto(Integer grupoId, Integer materiaId, String modalidad, Integer numeroGrupo, String aula,
-            String horario, String nombre, Integer creditos, String descripcion) {
+                           List<HorarioDto> horario, String nombre, Integer creditos, String descripcion) {
         this.grupoId = grupoId;
         this.materiaId = materiaId;
         this.modalidad = modalidad;
@@ -56,12 +60,6 @@ public class MateriaGrupoDto {
     public void setAula(String aula) {
         this.aula = aula;
     }
-    public String getHorario() {
-        return horario;
-    }
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
     public String getNombre() {
         return nombre;
     }
@@ -81,4 +79,11 @@ public class MateriaGrupoDto {
         this.descripcion = descripcion;
     }
 
+    public List<HorarioDto> getHorario() {
+        return horario;
+    }
+
+    public void setHorario(List<HorarioDto> horario) {
+        this.horario = horario;
+    }
 }

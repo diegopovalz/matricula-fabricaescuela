@@ -22,8 +22,6 @@ public class GrupoModel {
     private Integer numeroGrupo;
     @Column(name = "Aula")
     private String aula;
-    @Column(name = "Horario")
-    private String horario;
     
     public Integer getId() {
         return id;
@@ -67,13 +65,4 @@ public class GrupoModel {
     public void setAula(String aula) {
         this.aula = aula;
     }
-    public String getHorario() {
-        return horario;
-    }
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-    
-    
-
 }

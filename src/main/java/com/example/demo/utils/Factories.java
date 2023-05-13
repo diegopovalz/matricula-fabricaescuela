@@ -1,15 +1,10 @@
 package com.example.demo.utils;
 
-import com.example.demo.dto.MateriaDto;
-import com.example.demo.dto.OfertaDto;
-import com.example.demo.dto.ProgramaDto;
-import com.example.demo.dto.TandaDto;
-import com.example.demo.models.MateriaModel;
-import com.example.demo.models.OfertaModel;
-import com.example.demo.models.ProgramaModel;
-import com.example.demo.models.TandaModel;
+import com.example.demo.dto.*;
+import com.example.demo.models.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Factories {
 
@@ -27,5 +22,11 @@ public class Factories {
 
     public static OfertaDto ofertaFactory(OfertaModel ofertaModel, List<MateriaDto> materiaDtoList){
         return new OfertaDto(ofertaModel.getId(), ofertaModel.getTopeMaximoCreditos(), materiaDtoList);
+    }
+
+    public static List<HorarioDto> horarioFactory(List<HorarioModel> horariosModel){
+        return horariosModel.stream()
+                .map(horario -> new HorarioDto(horario.getId(), horario.getDiaSemana(), horario.getHoraInicio(), horario.getHoraFin()))
+                .collect(Collectors.toList());
     }
 }
