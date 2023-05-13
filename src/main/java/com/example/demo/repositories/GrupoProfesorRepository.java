@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GrupoProfesorRepository extends CrudRepository<GrupoProfesorModel, Integer> {
+    public GrupoProfesorModel findAllByGruposId(Integer gruposId);
 }
