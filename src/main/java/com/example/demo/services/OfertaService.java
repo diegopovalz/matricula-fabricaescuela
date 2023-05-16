@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.dto.MateriaDto;
 import com.example.demo.dto.OfertaDto;
-import com.example.demo.models.MateriaOfertaModel;
+import com.example.demo.models.MateriaModel;
 import com.example.demo.models.OfertaModel;
 import com.example.demo.repositories.MateriaOfertaRepository;
 import com.example.demo.repositories.MateriaRepository;
@@ -29,12 +29,11 @@ public class OfertaService {
     public OfertaDto obtenerPorId(Integer idOferta) {
 
         OfertaModel oferta = ofertaRepository.findById(idOferta).get();
-        List<MateriaOfertaModel> materiasIdList = materiaOfertaRepository.findByOfertasId(oferta.getId());
-        List<MateriaDto> materiasList = materiasIdList.stream()
-                .map(materiaOferta -> materiaRepository.findById(materiaOferta.getMateriasId()).get())
-                .map(Factories::materiaFactory)
+        List<MateriaModel> materiasModelList = materiaRepository.findByOfertaId(idOferta);
+        List<MateriaDto> materiasList = materiasModelList.stream()
+                .map(Factories::materiaToDtoFactory)
                 .collect(Collectors.toList());
 
-        return Factories.ofertaFactory(oferta, materiasList);
+        return Factories.ofertaToDtoFactory(oferta, materiasList);
     }
 }

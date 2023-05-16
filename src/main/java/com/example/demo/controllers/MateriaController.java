@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//Ruta rar, y los nombres
 @RestController
 //@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/materia")

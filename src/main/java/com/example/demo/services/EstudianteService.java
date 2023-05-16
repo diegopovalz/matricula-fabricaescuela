@@ -9,8 +9,8 @@ import com.example.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static com.example.demo.utils.Factories.programaFactory;
-import static com.example.demo.utils.Factories.tandaFactory;
+import static com.example.demo.utils.Factories.programaToDtoFactory;
+import static com.example.demo.utils.Factories.tandaToDtoFactory;
 
 @Service
 public class EstudianteService {
@@ -44,7 +44,7 @@ public class EstudianteService {
 
         return new EstudianteDto(estudiante.getId(), usuario.getNombres(), usuario.getApellidos(),
                 estudiante.getNroPensum(), estudiante.getNroSemestre(), estudiante.getOfertaId(),
-                programaFactory(programa), tandaFactory(tanda));
+                programaToDtoFactory(programa), tandaToDtoFactory(tanda));
     }
 
 }

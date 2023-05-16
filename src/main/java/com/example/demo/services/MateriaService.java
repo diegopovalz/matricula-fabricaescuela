@@ -36,8 +36,7 @@ public class MateriaService {
                         materia.getCreditos(), materia.getDescripcion())).collect(Collectors.toList());
     }
 
-    private List<HorarioDto> obtenerHorarioPorGrupoId(Integer grupoId){
-        return Factories.horarioFactory(horarioRepository.findByGrupoId(grupoId));
+    private List<HorarioDto> obtenerHorarioPorGrupoId(Integer grupoId) {
+        return Factories.horarioToDtoFactory(horarioRepository.findByGrupoId(grupoId));
     }
-
 }
