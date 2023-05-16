@@ -4,8 +4,7 @@ import com.example.demo.dto.ProgramaDto;
 import com.example.demo.models.ProgramaModel;
 import org.junit.jupiter.api.Test;
 
-import static com.example.demo.utils.Factories.programaFactory;
-
+import static com.example.demo.utils.Factories.programaToDtoFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FactoriesTest {
@@ -19,7 +18,7 @@ class FactoriesTest {
         model.setNombre("Nombre prueba");
 
         // Act
-        ProgramaDto dto = programaFactory(model);
+        ProgramaDto dto = programaToDtoFactory(model);
 
         // Assert
         assertEquals(model.getDescripcion(), dto.getDescripcion());
